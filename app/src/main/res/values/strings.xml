@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IRW-Oreo</string>
+    <string name="btn_my_project">My Project</string>
+    <string name="snack_title">OREO</string>
+    <string name="snack_description">Oreo adalah biskuit sandwich cokelat yang terdiri dari dua biskuit cokelat dengan isian krim manis di tengahnya.</string>
+    <string name="snack_nutrition">Komposisi Gizi (per 28.5g / 3 keping):\n- Energi Total: 140 kcal\n- Lemak Total: 6g\n- Protein: 1g\n- Karbohidrat Total: 20g\n- Gula: 10g\n- Natrium: 135mg</string>
+</resources>

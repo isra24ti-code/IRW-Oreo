@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9F9F9">
+
+    <!-- 1. Toolbar ditaruh Paling Atas (di luar ScrollView & Tanpa Padding) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#6750A4"
+        app:titleTextColor="#FFFFFF" />
+
+    <!-- 2. Konten Oreo dimasukkan di dalam ScrollView agar bisa di-scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
+
+            <!-- Judul Snack -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OREO"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#1A1A1A"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Gambar Oreo -->
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/oreo"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Deskripsi -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oreo adalah biskuit sandwich cokelat yang terdiri dari dua biskuit cokelat dengan isian krim manis di tengahnya."
+                android:gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Judul Komposisi -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Komposisi Gizi"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Kotak Komposisi Gizi -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#7DA2C5"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:text="Komposisi Gizi (per 28.5g / 3 keping):\n- Energi Total: 140 kcal\n- Lemak Total: 6g\n- Protein: 1g\n- Karbohidrat Total: 20g\n- Gula: 10g\n- Natrium: 135mg"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
