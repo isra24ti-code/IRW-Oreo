@@ -5,15 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Toolbar di Bagian Atas -->
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarWeb"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FF6F00"
-        app:titleTextColor="#FFFFFF" />
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/white" />
 
-    <!-- Komponen Komponen Komponen untuk Menampilkan Web -->
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"

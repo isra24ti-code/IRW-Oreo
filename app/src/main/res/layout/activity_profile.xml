@@ -10,17 +10,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Icon Back Saja (Menggunakan Vector Drawables standar Android) -->
+        <!-- Tombol Back -->
         <ImageButton
             android:id="@+id/btnBackIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Back"
-            android:padding="4dp"
+            android:padding="6dp"
             android:scaleType="fitCenter"
-            android:src="@android:drawable/ic_menu_revert"
-            android:tint="#133566" />
+            android:src="@android:drawable/ic_menu_revert" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,13 +27,13 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <!-- Foto Profil / Logo -->
+            <!-- Ikon Profil Person / User bawaan Android -->
             <ImageView
                 android:id="@+id/imgProfile"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/oreo" />
+                android:src="@android:drawable/ic_menu_myplaces" />
 
             <!-- Nama Developer -->
             <TextView

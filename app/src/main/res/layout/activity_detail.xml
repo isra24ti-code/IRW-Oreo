@@ -3,74 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F9F9F9">
+    android:background="#FAFAFA"
+    android:orientation="vertical">
 
-    <!-- 1. Toolbar ditaruh Paling Atas (di luar ScrollView & Tanpa Padding) -->
+    <!-- Toolbar / Header Navigation -->
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarDetail"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#6750A4"
+        android:background="?attr/colorPrimary"
+        app:title="Detail Smart Laundry"
         app:titleTextColor="#FFFFFF" />
 
-    <!-- 2. Konten Oreo dimasukkan di dalam ScrollView agar bisa di-scroll -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:gravity="center_horizontal">
+            android:orientation="vertical">
 
-            <!-- Judul Snack -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OREO"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="#1A1A1A"
-                android:layout_marginBottom="16dp"/>
-
-            <!-- Gambar Oreo -->
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/oreo"
-                android:layout_marginBottom="16dp"/>
-
-            <!-- Deskripsi -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Oreo adalah biskuit sandwich cokelat yang terdiri dari dua biskuit cokelat dengan isian krim manis di tengahnya."
-                android:gravity="center"
-                android:layout_marginBottom="20dp"/>
-
-            <!-- Judul Komposisi -->
-            <TextView
+            <!-- Card Utama Deskripsi -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Komposisi Gizi"
-                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Layanan Smart Laundry"
+                        android:textColor="?attr/colorPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="Smart Laundry menyediakan layanan cuci pakaian otomatis, cepat, dan higienis berbasis IoT. Lacak status cucianmu secara realtime langsung dari aplikasi!"
+                        android:textColor="#424242"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card Keunggulan Fitur -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Keunggulan Layanan"
+                        android:textColor="#212121"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="#EEEEEE" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ Pelayanan Cepat &amp; Tepat Waktu\n📊 Monitoring Timbangan &amp; Status via App\n🧼 Detergen Premium &amp; Ramah Lingkungan\n🛵 Antar Jemput Gratis Wilayah Kampus"
+                        android:textColor="#616161"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tombol Pesan Sekarang -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOrderNow"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="8dp"
+                android:text="Pesan Layanan Sekarang"
+                android:textAllCaps="false"
                 android:textSize="16sp"
-                android:layout_marginBottom="8dp"/>
-
-            <!-- Kotak Komposisi Gizi -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#7DA2C5"
-                android:padding="12dp"
-                android:textColor="#FFFFFF"
-                android:text="Komposisi Gizi (per 28.5g / 3 keping):\n- Energi Total: 140 kcal\n- Lemak Total: 6g\n- Protein: 1g\n- Karbohidrat Total: 20g\n- Gula: 10g\n- Natrium: 135mg"/>
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
 
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
