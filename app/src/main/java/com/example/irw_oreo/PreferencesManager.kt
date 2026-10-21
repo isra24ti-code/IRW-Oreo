@@ -4,18 +4,25 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class PreferencesManager(context: Context) {
-    private val pref: SharedPreferences = context.getSharedPreferences("USER_SESSION", Context.MODE_PRIVATE)
 
-    fun setLogin(isLogin: Boolean) {
-        pref.edit().putBoolean("IS_LOGIN", isLogin).apply()
+    private val sharedPref: SharedPreferences =
+        context.getSharedPreferences("OreoSession", Context.MODE_PRIVATE)
+
+    fun setLoggedIn(isLoggedIn: Boolean) {
+        sharedPref.edit().putBoolean("IS_LOGGED_IN", isLoggedIn).apply()
     }
 
-    fun isLogin(): Boolean {
-        return pref.getBoolean("IS_LOGIN", false)
+    fun isLoggedIn(): Boolean {
+        return sharedPref.getBoolean("IS_LOGGED_IN", false)
     }
 
-    // Menghapus seluruh session/status login
+    // Ubah status login jadi false
+    fun setLogout() {
+        sharedPref.edit().putBoolean("IS_LOGGED_IN", false).apply()
+    }
+
+    // Hapus seluruh session/data login (mencegah error Unresolved reference 'clearSession')
     fun clearSession() {
-        pref.edit().clear().apply()
+        sharedPref.edit().clear().apply()
     }
 }

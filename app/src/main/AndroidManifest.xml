@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Izin Akses Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,44 +14,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IRWOreo">
+
+        <!-- SplashActivity sebagai Launching Activity Utama -->
         <activity
-            android:name=".MainActivity"
+            android:name=".smartlaundry.SplashActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Halaman Login -->
         <activity
-            android:name=".DetailActivity"
+            android:name=".smartlaundry.LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- BaseActivity sebagai Kontainer Utama Dashboard -->
         <activity
-            android:name=".WebActivity"
+            android:name=".BaseActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Activity Pendukung Lainnya -->
         <activity
-            android:name=".PreferencesManager"
+            android:name=".smartlaundry.DetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
-            android:name=".SplashActivity"
+            android:name=".smartlaundry.WebActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
-            android:name=".LoginActivity"
+            android:name=".smartlaundry.ProfileActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".activity_profile"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

@@ -18,6 +18,11 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Mengaktifkan View Binding
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         release {
             optimization {
