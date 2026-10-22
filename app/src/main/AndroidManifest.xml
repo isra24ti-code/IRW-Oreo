@@ -22,6 +22,7 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -43,17 +44,24 @@
             android:name=".smartlaundry.DetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name=".smartlaundry.WebActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name=".smartlaundry.ProfileActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Halaman Registrasi & Verifikasi (Di dalam package smartlaundry) -->
+        <activity
+            android:name=".smartlaundry.RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".smartlaundry.VerificationActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

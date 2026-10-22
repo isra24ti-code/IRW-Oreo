@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:padding="28dp">
 
-        <!-- Logo Smart Laundry (Gunakan logo_smartlaundry jika ada, atau oreo sebagai fallback) -->
+        <!-- Logo Smart Laundry -->
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="110dp"
@@ -46,8 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="Username"
-            app:startIconDrawable="@android:drawable/ic_menu_myplaces">
+            android:hint="Username">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUsername"
@@ -64,8 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:hint="Password"
-            app:endIconMode="password_toggle"
-            app:startIconDrawable="@android:drawable/ic_lock_lock">
+            app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
@@ -85,6 +83,20 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:cornerRadius="12dp" />
+
+        <!-- Teks / Link Registrasi -->
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="8dp"
+            android:text="Belum punya akun? Daftar di sini"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true" />
 
     </LinearLayout>
 </ScrollView>
