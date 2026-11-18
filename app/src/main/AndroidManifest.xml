@@ -53,13 +53,25 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Halaman Registrasi & Verifikasi (Di dalam package smartlaundry) -->
+        <!-- Halaman Registrasi & Verifikasi -->
         <activity
             android:name=".smartlaundry.RegisterActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".smartlaundry.VerificationActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Halaman Tutorial Onboarding (Message / ViewPager2) -->
+        <activity
+            android:name=".smartlaundry.tutorial.TutorialMessageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Halaman Pertemuan 10 & 11 (TabLayout, ViewPager2, RecyclerView) -->
+        <activity
+            android:name=".pertemuan_10.TenthActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
