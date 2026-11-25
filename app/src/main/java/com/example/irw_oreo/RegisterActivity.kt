@@ -4,9 +4,14 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.irw_oreo.PreferencesManager
+import com.example.irw_oreo.SupabaseClient
+import com.example.irw_oreo.UserModel
 import com.example.irw_oreo.databinding.ActivityRegisterBinding
+import kotlinx.coroutines.launch
 import java.util.Calendar
 
 class RegisterActivity : AppCompatActivity() {
@@ -36,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
             dpd.show()
         }
 
-        // Tombol "Selanjutnya" -> Simpan data ke SharedPreferences & Pindah ke Verifikasi
+        // Tombol "Selanjutnya" -> Simpan ke SharedPreferences + Kirim ke Supabase -> Verifikasi
         binding.btnSelanjutnya.setOnClickListener {
             val nama = binding.etRegNama.text.toString().trim()
             val email = binding.etRegEmail.text.toString().trim()
@@ -51,11 +56,39 @@ class RegisterActivity : AppCompatActivity() {
             val pass = binding.etRegPassword.text.toString().trim()
             val confirmPass = binding.etRegConfirmPass.text.toString().trim()
 
-            // Simpan isian ke SharedPreferences
+            if (nama.isEmpty() || email.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(this, "Nama, Email, dan Password wajib diisi!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (pass != confirmPass) {
+                Toast.makeText(this, "Konfirmasi password tidak cocok!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // 1. Tetap simpan isian ke SharedPreferences
             prefManager.saveRegisterData(nama, email, tglLahir, gender, username, pass, confirmPass)
 
-            // Lanjut ke Halaman Verifikasi
-            startActivity(Intent(this, VerificationActivity::class.java))
+            // 2. Kirim data user ke Supabase
+            binding.btnSelanjutnya.isEnabled = false
+            lifecycleScope.launch {
+                try {
+                    val userBaru = UserModel(
+                        nama = nama,
+                        email = email,
+                        password = pass
+                    )
+                    SupabaseClient.apiService.registerUser(userBaru)
+                    Toast.makeText(this@RegisterActivity, "Registrasi berhasil tersimpan ke Supabase!", Toast.LENGTH_SHORT).show()
+
+                    // Lanjut ke Halaman Verifikasi
+                    startActivity(Intent(this@RegisterActivity, VerificationActivity::class.java))
+                } catch (e: Exception) {
+                    Toast.makeText(this@RegisterActivity, "Gagal simpan ke server: ${e.message}", Toast.LENGTH_LONG).show()
+                } finally {
+                    binding.btnSelanjutnya.isEnabled = true
+                }
+            }
         }
     }
 

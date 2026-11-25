@@ -82,84 +82,45 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Status Pesanan Cucian"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <!-- Existing Card Pesanan 1 -->
-            <androidx.cardview.widget.CardView
+            <!-- Header + Tombol Tambah Pesanan -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="3dp">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_weight="1"
+                    android:text="Status Pesanan Cucian"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ID Pesanan: #SL-9902"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnTambahPesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Pesanan" />
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Layanan: Cuci Komplit (3 kg)" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Status: Sedang Dikeringkan 🌀"
-                        android:textColor="#2196F3"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Existing Card Pesanan 2 -->
-            <androidx.cardview.widget.CardView
+            <!-- Teks Info Kosong / Loading -->
+            <TextView
+                android:id="@+id/tvInfoPesanan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="3dp">
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Memuat data pesanan dari Supabase..."
+                android:textColor="#757575" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ID Pesanan: #SL-9851"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Layanan: Dry Cleaning Jas" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Status: Selesai &amp; Siap Diambil ✅"
-                        android:textColor="#4CAF50"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            <!-- Wadah Dinamis Card Pesanan dari Supabase -->
+            <LinearLayout
+                android:id="@+id/containerPesanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
         </LinearLayout>
     </ScrollView>
